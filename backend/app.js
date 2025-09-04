@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import ArtistRoute from "./routes/artistRoutes.js"
+import GroupRoute from "./routes/groupRoutes.js"
 
 const app = express();
 const PORT = 8080;
@@ -13,7 +14,7 @@ app.get("/", (req,res) =>{
 })
 
 app.use('/api/v1/artists', ArtistRoute );
-// app.use("api/v1/groups", );
+app.use("/api/v1/groups", GroupRoute );
 
 app.listen(PORT, () =>{
     console.log("The server has started on port: "+ PORT)

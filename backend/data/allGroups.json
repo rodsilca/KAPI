@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "Name": "LE SSERAFIM",
+    "ShortName": "",
+    "KoreanName": "르세라핌",
+    "Debut": "2022-05-02",
+    "Company": "Source Music",
+    "CurrentMemberCount": 5,
+    "OriginalMemberCount": 6,
+    "FanbaseName": "FEARNOT",
+    "Active": "Yes"
+  },
+  {
+    "Id": 2,
+    "Name": "NMIXX",
+    "ShortName": "",
+    "KoreanName": "엔믹스",
+    "Debut": "2022-02-22",
+    "Company": "JYP Entertainment",
+    "CurrentMemberCount": 6,
+    "OriginalMemberCount": 7,
+    "FanbaseName": "NSWER",
+    "Active": "Yes"
+  },
+  {
+    "Id": 3,
+    "Name": "NewJeans",
+    "ShortName": "",
+    "KoreanName": "뉴진스",
+    "Debut": "2022-07-22",
+    "Company": "ADOR",
+    "CurrentMemberCount": 5,
+    "OriginalMemberCount": 5,
+    "FanbaseName": "Bunnies",
+    "Active": "Yes"
+  }
+]
