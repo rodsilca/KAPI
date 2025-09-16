@@ -10,7 +10,7 @@ const GroupSchema = new mongoose.Schema({
     CurrentMemberCount: Number,
     OriginalMemberCount: Number,
     FanbaseName: String,
-    Active:{type: Boolean}
+    Active:{type: String, enum:['Yes', 'No']}
 },{
     timestamps: true
 });

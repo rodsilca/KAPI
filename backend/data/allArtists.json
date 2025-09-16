@@ -9,7 +9,7 @@
     "Group": "LE SSERAFIM",
     "Country": "South Korea",
     "Birthplace": "Miryang, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -22,7 +22,7 @@
     "Group": "LE SSERAFIM",
     "Country": "South Korea",
     "Birthplace": "Gangnam-gu, Seoul, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -35,7 +35,7 @@
     "Group": "LE SSERAFIM",
     "Country": "Japan",
     "Birthplace": "Kochi, Japan",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -48,7 +48,7 @@
     "Group": "LE SSERAFIM",
     "Country": "South Korea",
     "Birthplace": "Gangnam-gu, Seoul, South Korea",
-    "2ndGroup": "IZ*ONE",
+    "SecondGroup": "IZ*ONE",
     "Gender": "F"
   },
   {
@@ -61,7 +61,7 @@
     "Group": "LE SSERAFIM",
     "Country": "Japan",
     "Birthplace": "Kagoshima, Japan",
-    "2ndGroup": "IZ*ONE",
+    "SecondGroup": "IZ*ONE",
     "Gender": "F"
   },
   {
@@ -74,7 +74,7 @@
     "Group": "NMIXX",
     "Country": "South Korea",
     "Birthplace": "Yangsan, South Gyeongsang Province, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -87,7 +87,7 @@
     "Group": "NMIXX",
     "Country": "South Korea",
     "Birthplace": "Namdong-gu, Incheon, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -100,7 +100,7 @@
     "Group": "NMIXX",
     "Country": "South Korea",
     "Birthplace": "Namyangju-si, Gyeonggi-do, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -113,7 +113,7 @@
     "Group": "NMIXX",
     "Country": "South Korea",
     "Birthplace": "Seongnam, Gyeonggi Province, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -126,7 +126,7 @@
     "Group": "NMIXX",
     "Country": "Australia",
     "Birthplace": "Marysville, Victoria, Australia",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -139,7 +139,7 @@
     "Group": "NMIXX",
     "Country": "South Korea",
     "Birthplace": "Daejeon, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -152,7 +152,7 @@
     "Group": "NewJeans",
     "Country": "Australia",
     "Birthplace": "Munsan, Paju, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -165,7 +165,7 @@
     "Group": "NewJeans",
     "Country": "South Korea",
     "Birthplace": "Pyeongchon, Dongan-gu, Anyang, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -178,7 +178,7 @@
     "Group": "NewJeans",
     "Country": "Australia",
     "Birthplace": "Melbourne, Australia",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   },
   {
@@ -191,7 +191,7 @@
     "Group": "NewJeans",
     "Country": "South Korea",
     "Birthplace": "Incheon, South Korea",
-    "2ndGroup": "U.SSO Girl",
+    "SecondGroup": "U.SSO Girl",
     "Gender": "F"
   },
   {
@@ -204,7 +204,7 @@
     "Group": "NewJeans",
     "Country": "South Korea",
     "Birthplace": "Chuncheon, Gangwon, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": "",
     "Gender": "F"
   }
 ]

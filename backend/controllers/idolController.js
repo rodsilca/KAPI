@@ -2,8 +2,18 @@ import Idol from "../models/Idol.js";
 
 
 export const getAllIdols = async (req,res) => {
+    const {name} = req.query;
+
     try {
-        const idols = await Idol.find();
+
+        let filter = {};
+
+        if(name){
+            filter.StageName = {$regex: name, $options: "i"};
+        }
+
+        const idols = await Idol.find(filter);
+
         res.status(200).json({count: idols.length, results: idols});
     } catch (error) {
         res.status(500).json({ message: "Error searching for idols", error });

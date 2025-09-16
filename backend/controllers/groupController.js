@@ -1,8 +1,17 @@
 import Group from "../models/Group.js";
 
 export const getAllGroups = async(req,res) => {
+    const {name} = req.query;
+
     try {
-        const groups = await Group.find();
+
+        let filter = {};
+
+        if(name){
+            filter.Name = {$regex: name, $options: "i"};
+        }
+
+        const groups = await Group.find(filter);
 
         res.status(200).json({count: groups.length, results: groups});
     } catch (error) {
