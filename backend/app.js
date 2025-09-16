@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import ArtistRoute from "./routes/artistRoutes.js"
+import IdolRoute from "./routes/idolRoutes.js"
 import GroupRoute from "./routes/groupRoutes.js"
 
 const app = express();
@@ -13,9 +13,7 @@ app.get("/", (req,res) =>{
     res.status(200).send("oi");
 })
 
-app.use('/api/v1/artists', ArtistRoute );
+app.use('/api/v1/idols', IdolRoute );
 app.use("/api/v1/groups", GroupRoute );
 
-app.listen(PORT, () =>{
-    console.log("The server has started on port: "+ PORT)
-});
+export default app;
