@@ -1,9 +1,13 @@
 import express from "express"
 import {getAllIdols, getIdolById} from "../controllers/idolController.js";
+import * as IdolController from "../controllers/idolController.js";
 
 const router = express.Router();
 
-router.route('/').get(getAllIdols);
-router.route('/:id').get(getIdolById);
+router.get('/', IdolController.getAllIdols);
+router.get('/:id', IdolController.getIdolById);
+router.post('/', IdolController.createIdol);
+router.put('/:id', IdolController.updateIdol);
+router.delete('/:id', IdolController.deleteIdolById);
 
 export default router;

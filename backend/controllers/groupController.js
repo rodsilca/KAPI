@@ -1,47 +1,62 @@
-import fs from "fs"
-import path, {dirname} from "path";
-import { fileURLToPath } from "url";
+import Group from "../models/Group.js";
 
+export const getAllGroups = async(req,res) => {
+    try {
+        const groups = await Group.find();
 
-const __filename = fileURLToPath(import.meta.url);//pega a url do arquivo atual ex: file:///Users/usuario/cap/backend/controllers/artistControllers.js e transforma em /Users/usuario/cap/controllers/artistControllers.js
-const __dirname = dirname(__filename); // pego o nome do diretorio do arquivo atual
-const filePath = path.join(__dirname, "..", "data", "allGroups.json" ); // constroi um path para o arquivo alvo EX: /Users/usuario/cap/controllers/../data/allArtists.json
-
-const data = JSON.parse(
-    fs.readFileSync(filePath)
-) ;
-
-
-export const getAllGroups = (req,res) => {
-    let results = data;
-
-    if(req.query.q != null || req.query.q != undefined){
-        let query = decodeURIComponent(req.query.q.toLowerCase());
-
-        results = data.filter((item) => 
-            //colocar mais criterios
-            item.Name.toLowerCase() == query ||
-            item.Company.toLowerCase() == query ||
-            item.KoreanName.toLowerCase() == query ||
-            item.ShortName.toLowerCase() == query
-        )
-
-        if(results.length == 0){ return res.status(404).json({results: "Artist Not Found with given creteria"});  }
-    }else{
-        results = data;
+        res.status(200).json({count: groups.length, results: groups});
+    } catch (error) {
+        res.status(500).json({ message: "Error searching for groups", error });
     }
-
-    if(!results) { return res.status(404).json({results: "Group Not Found"}); }
-
-    res.status(200).json({count: results.length, results: results});
 };
 
-export const getGroup = (req,res) => {
-    const {id} = req.params;
-    console.log(id);
-    const group = data.find((item) => item.Id == id);
+export const getGroupById = async (req,res) => {
+    const id = req.params.id;
+    
+    try {
+        const group = await Group.findOne({Id: Number(id)});
 
-    if(!group) { return res.status(404).json({results: "Group Not Found"}); }
+        if(!group) return res.status(404).json({message: "Group Not Found"});
 
-    res.status(200).json({results: group});
+        res.status(200).json({count: group.length, results: group});
+    } catch (error) {
+        res.status(500).json({ message: "Error searching for groups", error });
+    }
 };
+
+export const createGroup = async (req,res)=>{
+    try{
+        const newGroup = new Group(req.body);
+        newGroup.save();
+
+        res.status(201).json({message: "Group created"});
+
+    }catch(error){
+        res.status(500).json({ message: "Error creating group", error });
+    }
+}
+
+export const updateGroup = async (req,res) =>{
+    try {
+        const update = await Group.findOneAndUpdate({Id: Number(req.params.id)}, req.body);
+
+        if(!update) return res.status(404).json({message: "Group Not Found"});
+
+        res.status(204).json({message: "Group updated"});
+    } catch (error) {
+        res.status(500).json({ message: "Error updating group", error });
+    }
+}
+
+export const deleteGroupById = async (req,res) =>{
+    try {
+        const removed = await Group.findOneAndDelete({Id: Number(req.params.id)});
+
+        if(!removed) return res.status(404).json({message: "Group Not Found"});
+
+        res.status(200).json({message: "Group deleted"});
+
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting group", error });
+    }
+}

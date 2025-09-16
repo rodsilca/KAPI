@@ -33,7 +33,7 @@ export const getIdolById = async (req,res) => {
     const id = req.params.id;
     
     try {
-        const idol = await Idol.findById(id);
+        const idol = await Idol.findOne({Id: Number(id)});
 
         if(!idol){ return res.status(404).json({results: "Idol Not Found"});}
 
@@ -66,7 +66,7 @@ export const createIdol = async (req,res) =>{
 
 export const updateIdol = async (req,res) => {
     try {
-        const updated = await Idol.findByIdAndUpdate(req.params.id, req.body,{
+        const updated = await Idol.findOneAndUpdate({Id: Number(req.params.id)}, req.body,{
             new:true,
             runValidators: true,
         });
@@ -83,7 +83,7 @@ export const deleteIdolById = async (req, res) =>{
     const id = req.params.id;
 
     try {
-        const removed = Idol.findByIdAndDelete(id);
+        const removed = await Idol.findOneAndDelete({Id: Number(id)});
 
         if(!removed) return res.status(404).json({results: "Idol Not Found"});
 

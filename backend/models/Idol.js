@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const IdolSchema = new mongoose.Schema({
+    Id:{type: Number, unique: true ,required: true},
     StageName:{ type: String, required: true},
     FullName: String,
     KoreanName: String,
