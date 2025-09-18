@@ -1,5 +1,5 @@
-import Idol from "../backend/models/Idol.js";
-import Group from "../backend/models/Group.js";
+import Idol from "../models/Idol.js";
+import Group from "../models/Group.js";
 
 export function checkIdExists(model){
 

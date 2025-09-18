@@ -18,25 +18,6 @@ export const getAllIdols = async (req,res) => {
     } catch (error) {
         res.status(500).json({ message: "Error searching for idols", error });
     }
-
-    // if(req.query.q != null || req.query.q != undefined){
-    //     let query = decodeURIComponent(req.query.q.toLowerCase());
-
-    //     results = data.filter((item) => 
-    //         //colocar mais criterios
-    //         item.StageName.toLowerCase() == query ||
-    //         item.Group.toLowerCase() == query ||
-    //         item.KoreanName.toLowerCase() == query
-    //     )
-
-    //     if(results.length == 0){ return res.status(404).json({results: "Idol Not Found with given creteria"});  }
-    // }else{
-    //     results = data;
-    // }
-
-    // if(!results) { return res.status(404).json({results: "Idol Not Found"}); }
-
-    // res.status(200).json({count: results.length, results: results});
 };
 
 export const getIdolById = async (req,res) => {

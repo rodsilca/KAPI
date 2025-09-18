@@ -1,6 +1,6 @@
 import express from "express"
 import * as GroupController from "../controllers/groupController.js";
-import { checkIdExists } from "../../middlewares/checkId.js";
+import { checkIdExists } from "../middlewares/checkId.js";
 import Group from "../models/Group.js";
 
 const router = express.Router();

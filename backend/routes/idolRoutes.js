@@ -1,5 +1,5 @@
 import express from "express"
-import { checkIdExists } from "../../middlewares/checkId.js";
+import { checkIdExists } from "../middlewares/checkId.js";
 import * as IdolController from "../controllers/idolController.js";
 import Idol from "../models/Idol.js";
 
