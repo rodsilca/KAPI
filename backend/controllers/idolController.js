@@ -2,6 +2,7 @@ import Idol from "../models/Idol.js";
 
 
 export const getAllIdols = async (req,res) => {
+    const {page =1, limit =10} = req.query;
     const {name, nacionality, group} = req.query;
 
     let filter = {};
@@ -17,9 +18,22 @@ export const getAllIdols = async (req,res) => {
     }
 
     try {
-        const idols = await Idol.find(filter);
+        const pageNumber = Number(page);
+        const limitNumber = Number(limit);
+        const skip = (pageNumber -1) * limitNumber;
 
-        res.status(200).json({count: idols.length, results: idols});
+        const idols = await Idol.find(filter)
+        .skip(skip)
+        .limit(limitNumber);
+
+        const total = await Idol.countDocuments(filter);
+
+        res.status(200).json({count: total, 
+            page: pageNumber,
+            limit: limitNumber,
+            totalPages: Math.ceil(total/ limitNumber),
+            results: idols
+        });
     } catch (error) {
         res.status(500).json({ message: "Error searching for idols", error });
     }

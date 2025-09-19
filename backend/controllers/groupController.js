@@ -1,6 +1,7 @@
 import Group from "../models/Group.js";
 
 export const getAllGroups = async(req,res) => {
+    const {page =1, limit =10} = req.query;
     const {name, debut, company, members} = req.query;
 
     let filter = {};
@@ -22,11 +23,22 @@ export const getAllGroups = async(req,res) => {
     
 
     try {
+        const pageNumber = Number(page);
+        const limitNumber = Number(limit);
+        const skip = (pageNumber -1) * limitNumber;
 
-        const groups = await Group.find(filter);
-        console.log(groups);
+        const groups = await Group.find(filter)
+        .skip(skip)
+        .limit(limitNumber);
 
-        res.status(200).json({count: groups.length, results: groups});
+        const total = await Group.countDocuments(filter); 
+
+        res.status(200).json({count: total, 
+            page: pageNumber,
+            limit: limitNumber,
+            totalPages: Math.ceil(total/ limitNumber),
+            results: groups
+        });
     } catch (error) {
         res.status(500).json({ message: "Error searching for groups", error });
     }
