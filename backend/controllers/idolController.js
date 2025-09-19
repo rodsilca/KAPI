@@ -2,16 +2,21 @@ import Idol from "../models/Idol.js";
 
 
 export const getAllIdols = async (req,res) => {
-    const {name} = req.query;
+    const {name, nacionality, group} = req.query;
+
+    let filter = {};
+
+    if(name){
+        filter.StageName = {$regex: name, $options: "i"};
+    }
+    if(nacionality){
+        filter.Country = {$regex: nacionality, $options: "i"};
+    }
+    if(group){
+        filter.Group = {$regex: group, $options: "i"};
+    }
 
     try {
-
-        let filter = {};
-
-        if(name){
-            filter.StageName = {$regex: name, $options: "i"};
-        }
-
         const idols = await Idol.find(filter);
 
         res.status(200).json({count: idols.length, results: idols});

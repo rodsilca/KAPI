@@ -34,5 +34,53 @@
     "OriginalMemberCount": 5,
     "FanbaseName": "Bunnies",
     "Active": "Yes"
+  },
+  {
+    "Id": 4,
+    "Name": "aespa",
+    "ShortName": "",
+    "KoreanName": "에스파",
+    "Debut": "2020-11-17",
+    "Company": "SM Entertainment",
+    "CurrentMemberCount": 4,
+    "OriginalMemberCount": 4,
+    "FanbaseName": "MY",
+    "Active": "Yes"
+  },
+  {
+    "Id": 5,
+    "Name": "TWICE",
+    "ShortName": "",
+    "KoreanName": "트와이스",
+    "Debut": "2015-10-20",
+    "Company": "JYP Entertainment",
+    "CurrentMemberCount": 9,
+    "OriginalMemberCount": 9,
+    "FanbaseName": "Once",
+    "Active": "Yes"
+  },
+  {
+    "Id": 6,
+    "Name": "ILLIT",
+    "ShortName": "",
+    "KoreanName": "아일릿",
+    "Debut": "2024-03-25",
+    "Company": "BELIFT Lab",
+    "CurrentMemberCount": 5,
+    "OriginalMemberCount": 6,
+    "FanbaseName": "GLLIT",
+    "Active": "Yes"
+  },
+  {
+    "Id": 7,
+    "Name": "BLACKPINK",
+    "ShortName": "",
+    "KoreanName": "블랙핑크",
+    "Debut": "2016-08-08",
+    "Company": "YG Entertainment",
+    "CurrentMemberCount": 4,
+    "OriginalMemberCount": 4,
+    "FanbaseName": "Blink",
+    "Active": "Yes"
   }
 ]

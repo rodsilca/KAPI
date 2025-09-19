@@ -6,7 +6,8 @@ import GroupRoute from "./routes/groupRoutes.js"
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin:"http://localhost:5000"}));// exemplo de uso de cors
+//apenas essa url pode fazer requisicoes para a api
 
 app.get("/", (req,res) =>{
     res.status(200).send("oi");

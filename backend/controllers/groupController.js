@@ -1,17 +1,30 @@
 import Group from "../models/Group.js";
 
 export const getAllGroups = async(req,res) => {
-    const {name} = req.query;
+    const {name, debut, company, members} = req.query;
+
+    let filter = {};
+
+    if(name){
+        filter.Name = {$regex: name, $options: "i"};
+    }
+    if(debut){
+        filter.Debut ={}
+        filter.Debut.$gte = new Date(`${debut}-01-01`);
+        filter.Debut.$lte = new Date(`${debut}-12-31`);
+    }
+    if(company){
+        filter.Company = {$regex: company, $options: "i"};
+    }
+    if(members){
+        filter.CurrentMemberCount = Number(members);
+    }
+    
 
     try {
 
-        let filter = {};
-
-        if(name){
-            filter.Name = {$regex: name, $options: "i"};
-        }
-
         const groups = await Group.find(filter);
+        console.log(groups);
 
         res.status(200).json({count: groups.length, results: groups});
     } catch (error) {
