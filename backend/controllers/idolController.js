@@ -3,7 +3,7 @@ import Idol from "../models/Idol.js";
 
 export const getAllIdols = async (req,res) => {
     const {page =1, limit =10} = req.query;
-    const {name, nacionality, group} = req.query;
+    const {name, nacionality, group,sort} = req.query;
 
     let filter = {};
 
@@ -17,6 +17,13 @@ export const getAllIdols = async (req,res) => {
         filter.Group = {$regex: group, $options: "i"};
     }
 
+    const sortOption = {};
+    if(sort){
+        const direction = sort.startsWith("-") ? -1 :1;
+        const field = sort.replace("-","");
+        sortOption[field] = direction;
+    }
+
     try {
         const pageNumber = Number(page);
         const limitNumber = Number(limit);
@@ -24,7 +31,9 @@ export const getAllIdols = async (req,res) => {
 
         const idols = await Idol.find(filter)
         .skip(skip)
-        .limit(limitNumber);
+        .limit(limitNumber)
+        .sort(sortOption)
+        .collation({locale:"en", strength: 2});
 
         const total = await Idol.countDocuments(filter);
 

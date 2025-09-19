@@ -2,7 +2,7 @@ import Group from "../models/Group.js";
 
 export const getAllGroups = async(req,res) => {
     const {page =1, limit =10} = req.query;
-    const {name, debut, company, members} = req.query;
+    const {name, debut, company, members,sort} = req.query;
 
     let filter = {};
 
@@ -20,6 +20,13 @@ export const getAllGroups = async(req,res) => {
     if(members){
         filter.CurrentMemberCount = Number(members);
     }
+
+    const sortOption = {};
+    if(sort){
+        const direction = sort.startsWith("-") ? -1 :1;
+        const field = sort.replace("-","");
+        sortOption[field] = direction;
+    }
     
 
     try {
@@ -29,7 +36,9 @@ export const getAllGroups = async(req,res) => {
 
         const groups = await Group.find(filter)
         .skip(skip)
-        .limit(limitNumber);
+        .limit(limitNumber)
+        .sort(sortOption)
+        .collation({locale:"en", strength: 2});
 
         const total = await Group.countDocuments(filter); 
 
