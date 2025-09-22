@@ -1,4 +1,5 @@
 import Group from "../models/Group.js";
+import { createGroupSchema, updateGroupSchema } from "../validators/groupValidator.js";
 
 export const getAllGroups = async(req,res) => {
     const {page =1, limit =10} = req.query;
@@ -69,6 +70,14 @@ export const getGroupById = async (req,res) => {
 
 export const createGroup = async (req,res)=>{
     try{
+
+        const {error} = createGroupSchema.validate(req.body);
+
+        if(error) return res.status(400).json({
+            message: "Validation error",
+            details: error.details.map(x => x.message)
+        });
+
         const newGroup = new Group(req.body);
         newGroup.save();
 
@@ -81,6 +90,11 @@ export const createGroup = async (req,res)=>{
 
 export const updateGroup = async (req,res) =>{
     try {
+
+        const {error} = updateGroupSchema.validate(req.body);
+
+        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+
         const update = await Group.findOneAndUpdate({Id: Number(req.params.id)}, req.body);
 
         if(!update) return res.status(404).json({message: "Group Not Found"});

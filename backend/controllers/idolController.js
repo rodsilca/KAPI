@@ -1,4 +1,5 @@
 import Idol from "../models/Idol.js";
+import { createIdolSchema, updateIdolSchema } from "../validators/idolValidator.js";
 
 
 export const getAllIdols = async (req,res) => {
@@ -74,6 +75,10 @@ export const createIdol = async (req,res) =>{
     const data = req.body;
 
     try {
+        const{error} = createIdolSchema.validate(data);
+
+        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+
         const newIdol = new Idol(data);
         await newIdol.save();
 
@@ -85,6 +90,11 @@ export const createIdol = async (req,res) =>{
 
 export const updateIdol = async (req,res) => {
     try {
+
+        const {error} = updateIdolSchema.validate(req.body);
+
+        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+
         const updated = await Idol.findOneAndUpdate({Id: Number(req.params.id)}, req.body,{
             new:true,
             runValidators: true,
