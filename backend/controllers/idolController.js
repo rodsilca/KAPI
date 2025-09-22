@@ -2,7 +2,7 @@ import Idol from "../models/Idol.js";
 import { createIdolSchema, updateIdolSchema } from "../validators/idolValidator.js";
 
 
-export const getAllIdols = async (req,res) => {
+export const getAllIdols = async (req,res,next) => {
     const {page =1, limit =10} = req.query;
     const {name, nacionality, group,sort} = req.query;
 
@@ -45,66 +45,74 @@ export const getAllIdols = async (req,res) => {
             results: idols
         });
     } catch (error) {
-        res.status(500).json({ message: "Error searching for idols", error });
+        // res.status(500).json({ message: "Error searching for idols", error });
+        next(error);
     }
 };
 
-export const getIdolById = async (req,res) => {
+export const getIdolById = async (req,res,next) => {
     const id = req.params.id;
     
     try {
         const idol = await Idol.findOne({Id: Number(id)});
 
-        if(!idol){ return res.status(404).json({results: "Idol Not Found"});}
+        // if(!idol){ return res.status(404).json({results: "Idol Not Found"});}
+        if(!idol) {
+            const error = new Error("Idol Not Found");
+            error.statusCode = 404;
+            return next(error);
+        }
 
         res.status(200).json({results: idol});
     } catch (error) {
-        res.status(500).json({ message: "Error searching for idol", error });
+        // res.status(500).json({ message: "Error searching for idol", error });
+        next(error);
     }
-    
-    // const {id} = req.params;
-    // console.log(id);
-    // const idol = data.find((item) => item.Id == id);
-
-    // if(!idol) { return res.status(404).json({results: "Idol Not Found"}); }
-
-    // res.status(200).json({results: idol});
 };
 
-export const createIdol = async (req,res) =>{
+export const createIdol = async (req,res,next) =>{
     const data = req.body;
 
     try {
         const{error} = createIdolSchema.validate(data);
 
-        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+        // if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+        if(error) next(error);
 
         const newIdol = new Idol(data);
         await newIdol.save();
 
         res.status(201).json({message: "Idol created"});
     } catch (error) {
-        res.status(500).json({ message: "Error creating idol", error });
+        // res.status(500).json({ message: "Error creating idol", error });
+        next(error);
     }
 };
 
-export const updateIdol = async (req,res) => {
+export const updateIdol = async (req,res,next) => {
     try {
 
         const {error} = updateIdolSchema.validate(req.body);
 
-        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+        // if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+        if(error) return next(error);
 
         const updated = await Idol.findOneAndUpdate({Id: Number(req.params.id)}, req.body,{
             new:true,
             runValidators: true,
         });
 
-        if(!updated) return res.status(404).json({results: "Idol Not Found"});
+        // if(!updated) return res.status(404).json({results: "Idol Not Found"});
+        if(!updated) {
+            const error = new Error("Idol Not Found");
+            error.statusCode = 404;
+            return next(error);
+        }
 
         res.status(204).json({message: "Idol updated"});
     } catch (error) {
-        res.status(500).json({ message: "Error updating idol", error });
+        // res.status(500).json({ message: "Error updating idol", error });
+        next(error);
     }
 }
 
@@ -114,11 +122,17 @@ export const deleteIdolById = async (req, res) =>{
     try {
         const removed = await Idol.findOneAndDelete({Id: Number(id)});
 
-        if(!removed) return res.status(404).json({results: "Idol Not Found"});
+        // if(!removed) return res.status(404).json({results: "Idol Not Found"});
+        if(!removed) {
+            const error = new Error("Idol Not Found");
+            error.statusCode = 404;
+            return next(error);
+        } 
 
         res.status(200).json({message: "Idol deleted successfuly"});
     } catch (error) {
-        res.status(500).json({ message: "Error updating idol", error });
+        // res.status(500).json({ message: "Error updating idol", error });
+        next(error);
     }
 
 

@@ -3,7 +3,7 @@ import Joi from "joi"
 export const createIdolSchema = Joi.object({
     Id:Joi.number().required(),
     StageName: Joi.string().min(1).max(50).required(),
-    FullName: Joi.string().required().optional(),
+    FullName: Joi.string().optional(),
     KoreanName: Joi.string().optional(),
     KoreanStageName: Joi.string().optional(),
     DateOfBirth: Joi.date().iso().optional(),
