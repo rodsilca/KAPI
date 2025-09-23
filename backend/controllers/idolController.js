@@ -82,7 +82,7 @@ export const createIdol = async (req,res,next) =>{
         const newIdol = new Idol(data);
         await newIdol.save();
 
-        res.status(201).json({message: "Idol created"});
+        res.status(201).json({message: "Idol created", results: data});
     } catch (error) {
         // res.status(500).json({ message: "Error creating idol", error });
         next(error);
@@ -109,7 +109,7 @@ export const updateIdol = async (req,res,next) => {
             return next(error);
         }
 
-        res.status(204).json({message: "Idol updated"});
+        res.status(200).json({message: "Idol updated"});
     } catch (error) {
         // res.status(500).json({ message: "Error updating idol", error });
         next(error);

@@ -7,7 +7,7 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin:"http://localhost:5000"}));// exemplo de uso de cors
+app.use(cors({origin:"http://localhost:5500"}));// exemplo de uso de cors
 //apenas essa url pode fazer requisicoes para a api
 
 app.get("/", (req,res) =>{

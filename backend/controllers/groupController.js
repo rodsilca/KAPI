@@ -1,7 +1,7 @@
 import Group from "../models/Group.js";
 import { createGroupSchema, updateGroupSchema } from "../validators/groupValidator.js";
 
-export const getAllGroups = async(req,res) => {
+export const getAllGroups = async(req,res,next) => {
     const {page =1, limit =10} = req.query;
     const {name, debut, company, members,sort} = req.query;
 
@@ -50,70 +50,79 @@ export const getAllGroups = async(req,res) => {
             results: groups
         });
     } catch (error) {
-        res.status(500).json({ message: "Error searching for groups", error });
+        next(error);
     }
 };
 
-export const getGroupById = async (req,res) => {
+export const getGroupById = async (req,res,next) => {
     const id = req.params.id;
     
     try {
         const group = await Group.findOne({Id: Number(id)});
 
-        if(!group) return res.status(404).json({message: "Group Not Found"});
+        if(!group) {
+            const error = new Error("Group Not Found");
+            error.statusCode = 404;
+            next(error);
+        };
 
         res.status(200).json({count: group.length, results: group});
     } catch (error) {
-        res.status(500).json({ message: "Error searching for groups", error });
+        next(error);
     }
 };
 
-export const createGroup = async (req,res)=>{
+export const createGroup = async (req,res,next)=>{
     try{
 
         const {error} = createGroupSchema.validate(req.body);
 
-        if(error) return res.status(400).json({
-            message: "Validation error",
-            details: error.details.map(x => x.message)
-        });
+        if(error) return next(error);
 
         const newGroup = new Group(req.body);
         newGroup.save();
 
-        res.status(201).json({message: "Group created"});
+        res.status(201).json({message: "Group created", results: req.body});
 
     }catch(error){
-        res.status(500).json({ message: "Error creating group", error });
+        next(error);
     }
 }
 
-export const updateGroup = async (req,res) =>{
+export const updateGroup = async (req,res,next) =>{
     try {
 
         const {error} = updateGroupSchema.validate(req.body);
 
-        if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+        if(error) return next(error);
 
         const update = await Group.findOneAndUpdate({Id: Number(req.params.id)}, req.body);
 
-        if(!update) return res.status(404).json({message: "Group Not Found"});
+        if(!update) {
+            const error = new Error("Group Not Found");
+            error.statusCode = 404;
+            return next(error);
+        }
 
-        res.status(204).json({message: "Group updated"});
+        res.status(200).json({message: "Group updated"});
     } catch (error) {
-        res.status(500).json({ message: "Error updating group", error });
+        next(error);
     }
 }
 
-export const deleteGroupById = async (req,res) =>{
+export const deleteGroupById = async (req,res,next) =>{
     try {
         const removed = await Group.findOneAndDelete({Id: Number(req.params.id)});
 
-        if(!removed) return res.status(404).json({message: "Group Not Found"});
+        if(!removed) {
+            const error = new Error("Group Not Found");
+            error.statusCode = 404;
+            return next(error);
+        }
 
-        res.status(200).json({message: "Group deleted"});
+        res.status(200).json({message: "Group deleted successfuly"});
 
     } catch (error) {
-        res.status(500).json({ message: "Error deleting group", error });
+        next(error);
     }
 }

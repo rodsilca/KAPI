@@ -3,7 +3,7 @@ export const errorHandler = (err,req,res,next) =>{
 
     if(err.isJoi){
         return res.status(400).json({
-            message: "Validation error",
+            message: "Validation error9",
             details: err.details.map(x => x.message)
         });
     }

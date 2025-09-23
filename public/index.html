@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>KAPI</title>
+</head>
+<body>
+    <h2>KAPI</h2>
+    <div class="input-group">
+        <span class="base-url">http://localhost:8080/api/v1/</span>
+        <input id="endpoint" class="endpoint" type="text" value="idols">
+        <button onclick="fetchData()">Submit</button>
+    </div>
+    <pre id="output">Aguardando requisição...</pre>
+</body>
+
+<script>
+
+    const baseUrl ="http://localhost:8080/api/v1/"
+
+    async function fetchData() {
+        const endpoint = document.getElementById('endpoint').value;
+        const url = baseUrl+endpoint;
+        const output = document.getElementById('output');
+
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            output.textContent = JSON.stringify(data, null, 2);
+
+        } catch (error) {
+            output.textContent = "Erro: " + error.message;
+        }
+    }
+</script>
+</html>
