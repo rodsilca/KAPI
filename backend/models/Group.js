@@ -9,6 +9,12 @@ const GroupSchema = new mongoose.Schema({
     Company: String,
     CurrentMemberCount: Number,
     OriginalMemberCount: Number,
+    Members:[
+        {
+            stageName: String,
+            url:String
+        }
+    ],
     FanbaseName: String,
     Active:{type: String, enum:['Yes', 'No']}
 },{

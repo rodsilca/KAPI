@@ -7,7 +7,10 @@ export const createIdolSchema = Joi.object({
     KoreanName: Joi.string().optional(),
     KoreanStageName: Joi.string().optional(),
     DateOfBirth: Joi.date().iso().optional(),
-    Group: Joi.string().required(),
+    Group: Joi.object({
+        name: Joi.string().required(),
+        url: Joi.string().uri().required()
+    }).required(),
     Country: Joi.string().required(),
     Birthplace: Joi.string().optional(),
     SecondGroup: Joi.string().optional(),
@@ -21,7 +24,10 @@ export const updateIdolSchema = Joi.object({
     KoreanName: Joi.string().optional(),
     KoreanStageName: Joi.string().optional(),
     DateOfBirth: Joi.date().iso().optional(),
-    Group: Joi.string().optional(),
+    Group: Joi.object({
+        name: Joi.string().optional(),
+        url: Joi.string().uri().optional()
+    }).required(),
     Country: Joi.string().optional(),
     Birthplace: Joi.string().optional(),
     SecondGroup: Joi.string().optional(),

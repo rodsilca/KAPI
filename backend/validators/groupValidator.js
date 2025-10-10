@@ -9,6 +9,12 @@ export const createGroupSchema = Joi.object({
     Company: Joi.string().required(),
     CurrentMemberCount: Joi.number().required(),
     OriginalMemberCount: Joi.number().required(),
+    Members: Joi.array().items(
+        Joi.object({
+            stageName: Joi.string().required(),
+            url:Joi.string().required()
+        })
+    ).optional(),
     FanbaseName: Joi.string().optional(),
     Active: Joi.string().valid("Yes","No").required()
 });

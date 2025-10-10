@@ -7,7 +7,10 @@ const IdolSchema = new mongoose.Schema({
     KoreanName: String,
     KoreanStageName: String,
     DateOfBirth: Date,
-    Group: String,
+    Group: {
+        name: {type: String, required: true},
+        url: {type: String, required: true} 
+    },
     Country:String,
     Birthplace:String,
     SecondGroup: String,
