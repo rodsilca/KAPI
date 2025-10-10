@@ -129,7 +129,7 @@ export const deleteIdolById = async (req, res) =>{
             return next(error);
         } 
 
-        res.status(200).json({message: "Idol deleted successfuly"});
+        res.status(200).json({message: "Idol deleted successfuly", results:removed });
     } catch (error) {
         // res.status(500).json({ message: "Error updating idol", error });
         next(error);
