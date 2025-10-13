@@ -27,32 +27,23 @@ const IdolSchema = new mongoose.Schema({
 });
 
 //Middleware que exclui o idol da lista de membros no schema group, quando o Idol for excluido do banco
-// IdolSchema.post("findOneAndDelete", async function (doc) {
-//     if(!doc) return;
+IdolSchema.post("findOneAndDelete", async function (doc) {
+    if (doc && doc.Group) {
+        try {
+        // Busca o grupo como um documento Mongoose completo
+            const group = await Group.findOne({Name: doc.Group.name});
+            if (group) {
+                group.Members = group.Members.filter(
+                    (member) => !member.url.endsWith(`/idols/${doc.Id}`)  
+                );
+                await group.save(); 
+            }
+        } catch (err) {
+            console.error("Failed to update group members:", err);
+        }
+    }
 
-//     try {
-//         const groupName = doc.Group?.name;
-
-//         const group = Group.findOne({Name: groupName});
-//         console.log(group.Name);
-//         if(!group) return;
-
-//         if (!Array.isArray(group.Members)) {
-//             group.Members = [];
-//         }
-
-//         group.Members = group.Members.filter(
-//             (m) => !m.url.endsWith(`http://localhost:8080/api/v1//idols/${doc.Id}`)
-//         );
-
-//         await group.save();
-//         console.log("Idol removed from their group: "+ group.Name);
-//     } catch (error) {
-//         console.error("error", error);
-//     }
-
-
-// })
+})
 
 // Middleware que add automaticamente o IDol no grupo correspondente
 

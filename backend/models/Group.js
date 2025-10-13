@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Idol from "./Idol.js";
 
 const GroupSchema = new mongoose.Schema({
     Id:{type: Number, unique: true ,required: true},
@@ -33,6 +34,19 @@ const GroupSchema = new mongoose.Schema({
             return ret;
         }
     }
+});
+//Middleware que deixa vazio o campo idol quando o grupo for excluido
+GroupSchema.post("findOneAndDelete", async function (doc) {
+  if (doc) {
+    try {
+        await Idol.updateMany(
+            { "Group.name": doc.Name },
+            { $set: { Group: {} } } // deixa vazio o campo group do idol
+        );
+    } catch (err) {
+        console.error("Failed to remove reference of idols", err);
+    }
+  }
 });
 
 const Group = mongoose.model('Group', GroupSchema);
