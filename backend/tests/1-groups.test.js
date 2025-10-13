@@ -18,22 +18,23 @@ let groupId;
 describe("CREATE Criando grupo", ()=>{
     test("deve retornar 201", async ()=>{
         const newGroup = {
-            "Id": 60,
-            "Name": "ILLIT",
+            "Id": 100,
+            "Name": "ITZY",
             "ShortName": " ",
-            "KoreanName": "아일릿",
-            "Debut": "2024-03-25",
-            "Company": "BELIFT Lab",
+            "KoreanName": "있지",
+            "Debut": "2019-02-12",
+            "Company": "JYP Entertainment",
             "CurrentMemberCount": 5,
-            "OriginalMemberCount": 6,
-            "FanbaseName": "GLLIT",
+            "OriginalMemberCount": 5,
+            "Members": [],
+            "FanbaseName": "MIDZY",
             "Active": "Yes"
         }
         const res = await request(app).post("/api/v1/groups").send(newGroup);
 
         expect(res.statusCode).toBe(201);
         expect(res.body.results).toHaveProperty("Id");
-        expect(res.body.results.Name).toBe("ILLIT");
+        expect(res.body.results.Name).toBe("ITZY");
 
         groupId = res.body.results.Id;
     })
@@ -41,11 +42,12 @@ describe("CREATE Criando grupo", ()=>{
 
 
 describe("GET /api/v1/groups", () =>{
-    describe("Should return the group test", ()=>{
-        test("Search for the group test",async ()=>{
+    describe("Should return the group", ()=>{
+        test("Search for the group",async ()=>{
             const res = await request(app).get(`/api/v1/groups/${Number(groupId)}`);
             expect(res.statusCode).toBe(200);
             expect(res.body).toHaveProperty("results");
+            expect(res.body.results.Id).toBe(groupId);
         });
     })
 
@@ -54,11 +56,11 @@ describe("GET /api/v1/groups", () =>{
 describe("PUT /api/v1/groups", () =>{
     describe("Should update the group", ()=>{
         test("update group",async ()=>{
-            const updateFiel = {
+            const updateField = {
                 Name: "dlkfjsdklfjsdlkfjs"
             }
 
-            const res = await request(app).put(`/api/v1/groups/${Number(groupId)}`).send(updateFiel);
+            const res = await request(app).put(`/api/v1/groups/${Number(groupId)}`).send(updateField);
             expect(res.statusCode).toBe(200);
             expect(res.body.message).toBe("Group updated");
         });

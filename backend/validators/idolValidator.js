@@ -27,7 +27,7 @@ export const updateIdolSchema = Joi.object({
     Group: Joi.object({
         name: Joi.string().optional(),
         url: Joi.string().uri().optional()
-    }).required(),
+    }).optional(),
     Country: Joi.string().optional(),
     Birthplace: Joi.string().optional(),
     SecondGroup: Joi.string().optional(),

@@ -18,23 +18,26 @@ let idolId;
 describe("CREATE Criando idol", ()=>{
     test("deve retornar 201", async ()=>{
         const newIdol = {
-            "Id": 150,
-            "StageName": "Hyein",
-            "FullName": "Lee Hye-in",
-            "KoreanName": "이혜인",
-            "KoreanStageName": "혜인",
-            "DateOfBirth": "2008-04-21",
-            "Group": "NewJeans",
+            "Id": 100,
+            "StageName": "Chaeryeong",
+            "FullName": "Lee Chae-ryeong",
+            "KoreanName": "이채령",
+            "KoreanStageName": "채령",
+            "DateOfBirth": "2001-06-05",
+            "Group": {
+                "name": "ITZY",
+                "url": "http://localhost:8080/api/v1/groups/8"
+            },
             "Country": "South Korea",
-            "Birthplace": "Incheon, South Korea",
-            "SecondGroup": "U.SSO Girl",
+            "Birthplace": "Yongin, Gyeonggi, South Korea",
+            "SecondGroup": " ",
             "Gender": "F"
         }
         const res = await request(app).post("/api/v1/idols").send(newIdol);
 
         expect(res.statusCode).toBe(201);
         expect(res.body.results).toHaveProperty("Id");
-        expect(res.body.results.StageName).toBe("Hyein");
+        expect(res.body.results.StageName).toBe("Chaeryeong");
 
         idolId = res.body.results.Id;
     })
