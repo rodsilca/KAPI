@@ -75,6 +75,36 @@ IdolSchema.post("save", async function(doc, next) {
     }
 });
 
+IdolSchema.post("insertMany", async function(docs, next) {
+    try {
+        for(const doc of docs){
+            const groupName = doc.Group?.name;
+            if(!groupName) return next();
+
+            const group = await Group.findOne({Name: groupName});
+            if(!group){
+                console.warn(`Group: ${groupName} not found for ${doc.StageName}`);
+                return next();
+            }
+
+            const exists = group.Members.some(m => m.stageName === doc.StageName);
+            if(!exists){
+                group.Members.push({
+                    stageName: doc.StageName,
+                    url: `http://localhost:8080/api/v1/idols/${doc.Id}`
+                })
+            }
+
+            await group.save();
+            console.log(`Idol added to your respective group: ${groupName}` );
+        }
+
+    } catch (error) {
+        console.error("Failed to add idol to group", error);
+        next(error);
+    }
+});
+
 const Idol = mongoose.model('Idol', IdolSchema);
 export default Idol;
 

@@ -6,10 +6,13 @@
     "KoreanName": "홍은채",
     "KoreanStageName": "홍은채",
     "DateOfBirth": "2006-11-10",
-    "Group": "LE SSERAFIM",
+    "Group": {
+      "name": "LE SSERAFIM",
+      "url": "http://localhost:8080/api/v1/groups/1"
+    },
     "Country": "South Korea",
     "Birthplace": "Miryang, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -19,10 +22,13 @@
     "KoreanName": "허윤진",
     "KoreanStageName": "허윤진",
     "DateOfBirth": "2001-10-08",
-    "Group": "LE SSERAFIM",
+    "Group": {
+      "name": "LE SSERAFIM",
+      "url": "http://localhost:8080/api/v1/groups/1"
+    },
     "Country": "South Korea",
     "Birthplace": "Gangnam-gu, Seoul, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -32,10 +38,13 @@
     "KoreanName": "나카무라 카즈하",
     "KoreanStageName": "카즈하",
     "DateOfBirth": "2003-08-09",
-    "Group": "LE SSERAFIM",
+    "Group": {
+      "name": "LE SSERAFIM",
+      "url": "http://localhost:8080/api/v1/groups/1"
+    },
     "Country": "Japan",
     "Birthplace": "Kochi, Japan",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -45,7 +54,10 @@
     "KoreanName": "김채원",
     "KoreanStageName": "김채원",
     "DateOfBirth": "2000-08-01",
-    "Group": "LE SSERAFIM",
+    "Group": {
+      "name": "LE SSERAFIM",
+      "url": "http://localhost:8080/api/v1/groups/1"
+    },
     "Country": "South Korea",
     "Birthplace": "Gangnam-gu, Seoul, South Korea",
     "SecondGroup": "IZ*ONE",
@@ -58,7 +70,10 @@
     "KoreanName": "미야와키 사쿠라",
     "KoreanStageName": "사쿠라",
     "DateOfBirth": "1998-03-19",
-    "Group": "LE SSERAFIM",
+    "Group": {
+      "name": "LE SSERAFIM",
+      "url": "http://localhost:8080/api/v1/groups/1"
+    },
     "Country": "Japan",
     "Birthplace": "Kagoshima, Japan",
     "SecondGroup": "IZ*ONE",
@@ -71,10 +86,13 @@
     "KoreanName": "배진솔",
     "KoreanStageName": "배",
     "DateOfBirth": "2004-12-28",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "South Korea",
     "Birthplace": "Yangsan, South Gyeongsang Province, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -84,10 +102,13 @@
     "KoreanName": "오해원",
     "KoreanStageName": "해원",
     "DateOfBirth": "2003-02-25",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "South Korea",
     "Birthplace": "Namdong-gu, Incheon, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -97,10 +118,13 @@
     "KoreanName": "김지우",
     "KoreanStageName": "지우",
     "DateOfBirth": "2005-04-13",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "South Korea",
     "Birthplace": "Namyangju-si, Gyeonggi-do, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -110,10 +134,13 @@
     "KoreanName": "장규진",
     "KoreanStageName": "규진",
     "DateOfBirth": "2006-05-26",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "South Korea",
     "Birthplace": "Seongnam, Gyeonggi Province, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -123,10 +150,13 @@
     "KoreanName": "릴리 진 모로우",
     "KoreanStageName": "릴리",
     "DateOfBirth": "2002-10-17",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "Australia",
     "Birthplace": "Marysville, Victoria, Australia",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -136,10 +166,13 @@
     "KoreanName": "설윤아",
     "KoreanStageName": "설윤",
     "DateOfBirth": "2004-01-26",
-    "Group": "NMIXX",
+    "Group": {
+      "name": "NMIXX",
+      "url": "http://localhost:8080/api/v1/groups/2"
+    },
     "Country": "South Korea",
     "Birthplace": "Daejeon, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -149,10 +182,13 @@
     "KoreanName": "모지혜",
     "KoreanStageName": "다니엘",
     "DateOfBirth": "2005-04-11",
-    "Group": "NewJeans",
+    "Group": {
+      "name": "NewJeans",
+      "url": "http://localhost:8080/api/v1/groups/3"
+    },
     "Country": "Australia",
     "Birthplace": "Munsan, Paju, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -162,10 +198,13 @@
     "KoreanName": "강해린",
     "KoreanStageName": "해린",
     "DateOfBirth": "2006-05-15",
-    "Group": "NewJeans",
+    "Group": {
+      "name": "NewJeans",
+      "url": "http://localhost:8080/api/v1/groups/3"
+    },
     "Country": "South Korea",
     "Birthplace": "Pyeongchon, Dongan-gu, Anyang, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -175,10 +214,13 @@
     "KoreanName": "팜하니",
     "KoreanStageName": "하니",
     "DateOfBirth": "2004-10-06",
-    "Group": "NewJeans",
+    "Group": {
+      "name": "NewJeans",
+      "url": "http://localhost:8080/api/v1/groups/3"
+    },
     "Country": "Australia",
     "Birthplace": "Melbourne, Australia",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -188,7 +230,10 @@
     "KoreanName": "이혜인",
     "KoreanStageName": "혜인",
     "DateOfBirth": "2008-04-21",
-    "Group": "NewJeans",
+    "Group": {
+      "name": "NewJeans",
+      "url": "http://localhost:8080/api/v1/groups/3"
+    },
     "Country": "South Korea",
     "Birthplace": "Incheon, South Korea",
     "SecondGroup": "U.SSO Girl",
@@ -201,10 +246,13 @@
     "KoreanName": "김민지",
     "KoreanStageName": "민지",
     "DateOfBirth": "2004-05-07",
-    "Group": "NewJeans",
+    "Group": {
+      "name": "NewJeans",
+      "url": "http://localhost:8080/api/v1/groups/3"
+    },
     "Country": "South Korea",
     "Birthplace": "Chuncheon, Gangwon, South Korea",
-    "SecondGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -214,10 +262,13 @@
     "KoreanName": "우치나가 에리",
     "KoreanStageName": "지젤",
     "DateOfBirth": "2000-10-30",
-    "Group": "aespa",
+    "Group": {
+      "name": "aespa",
+      "url": "http://localhost:8080/api/v1/groups/4"
+    },
     "Country": "Japan",
     "Birthplace": "Gangnam-gu, Seoul, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -227,10 +278,13 @@
     "KoreanName": "유지민",
     "KoreanStageName": "카리나",
     "DateOfBirth": "2000-04-11",
-    "Group": "aespa",
+    "Group": {
+      "name": "aespa",
+      "url": "http://localhost:8080/api/v1/groups/4"
+    },
     "Country": "South Korea",
     "Birthplace": "Suwon, Gyeonggi, South Korea",
-    "2ndGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -240,10 +294,13 @@
     "KoreanName": "닝이줘",
     "KoreanStageName": "닝닝",
     "DateOfBirth": "2002-10-23",
-    "Group": "aespa",
+    "Group": {
+      "name": "aespa",
+      "url": "http://localhost:8080/api/v1/groups/4"
+    },
     "Country": "China",
     "Birthplace": "Harbin, Heilongjiang, China",
-    "2ndGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   },
   {
@@ -253,244 +310,13 @@
     "KoreanName": "김민정",
     "KoreanStageName": "윈터",
     "DateOfBirth": "2001-01-01",
-    "Group": "aespa",
+    "Group": {
+      "name": "aespa",
+      "url": "http://localhost:8080/api/v1/groups/4"
+    },
     "Country": "South Korea",
     "Birthplace": "Busan, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 21,
-    "StageName": "Dahyun",
-    "FullName": "Kim Da-hyun",
-    "KoreanName": "김다현",
-    "KoreanStageName": "다현",
-    "DateOfBirth": "1998-05-28",
-    "Group": "TWICE",
-    "Country": "South Korea",
-    "Birthplace": "Seongnam, Gyeonggi, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 22,
-    "StageName": "Jeongyeon",
-    "FullName": "Yoo Jeong-yeon",
-    "KoreanName": "유정연",
-    "KoreanStageName": "정연",
-    "DateOfBirth": "1996-11-01",
-    "Group": "TWICE",
-    "Country": "South Korea",
-    "Birthplace": "Suwon, Gyeonggi, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 23,
-    "StageName": "Jihyo",
-    "FullName": "Park Ji-hyo",
-    "KoreanName": "박지효",
-    "KoreanStageName": "지효",
-    "DateOfBirth": "1997-02-01",
-    "Group": "TWICE",
-    "Country": "South Korea",
-    "Birthplace": "Guri, Gyeonggi, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 24,
-    "StageName": "Mina",
-    "FullName": "Mina Myoi",
-    "KoreanName": "묘이 미나",
-    "KoreanStageName": "미나",
-    "DateOfBirth": "1997-03-24",
-    "Group": "TWICE",
-    "Country": "United States",
-    "Birthplace": "San Antonio, Texas, United States",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 25,
-    "StageName": "Momo",
-    "FullName": "Hirai Momo",
-    "KoreanName": "히라이 모모",
-    "KoreanStageName": "모모",
-    "DateOfBirth": "1996-11-09",
-    "Group": "TWICE",
-    "Country": "Japan",
-    "Birthplace": "Kyotanabe, Kyoto, Japan",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 26,
-    "StageName": "Nayeon",
-    "FullName": "Im Na-yeon",
-    "KoreanName": "임나연",
-    "KoreanStageName": "나연",
-    "DateOfBirth": "1995-09-22",
-    "Group": "TWICE",
-    "Country": "South Korea",
-    "Birthplace": "Gangdong-gu, Seoul, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 27,
-    "StageName": "Sana",
-    "FullName": "Minatozaki Sana",
-    "KoreanName": "미나토자키 사나",
-    "KoreanStageName": "사나",
-    "DateOfBirth": "1996-12-29",
-    "Group": "TWICE",
-    "Country": "Japan",
-    "Birthplace": "Tennōji-ku, Osaka, Japan",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 28,
-    "StageName": "Tzuyu",
-    "FullName": "Chou Tzu-yu",
-    "KoreanName": "저우쯔위",
-    "KoreanStageName": "쯔위",
-    "DateOfBirth": "1999-06-14",
-    "Group": "TWICE",
-    "Country": "Taiwan",
-    "Birthplace": "East District, Tainan, Taiwan",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 29,
-    "StageName": "Chaeyoung",
-    "FullName": "Son Chae-young",
-    "KoreanName": "손채영",
-    "KoreanStageName": "채영",
-    "DateOfBirth": "1999-04-23",
-    "Group": "TWICE",
-    "Country": "South Korea",
-    "Birthplace": "Gangdong-gu, Seoul, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 30,
-    "StageName": "Iroha",
-    "FullName": "Hokazono Iroha",
-    "KoreanName": "호카조노 이로하",
-    "KoreanStageName": "이로하",
-    "DateOfBirth": "2008-02-04",
-    "Group": "ILLIT",
-    "Country": "Japan",
-    "Birthplace": "",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 31,
-    "StageName": "Minju",
-    "FullName": "Park Min-ju",
-    "KoreanName": "박민주",
-    "KoreanStageName": "민주",
-    "DateOfBirth": "2004-05-11",
-    "Group": "ILLIT",
-    "Country": "South Korea",
-    "Birthplace": "",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 32,
-    "StageName": "Moka",
-    "FullName": "Sakai Moka",
-    "KoreanName": "사카이 모카",
-    "KoreanStageName": "모카",
-    "DateOfBirth": "2004-10-08",
-    "Group": "ILLIT",
-    "Country": "Japan",
-    "Birthplace": "",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 33,
-    "StageName": "Wonhee",
-    "FullName": "Lee Won-hee",
-    "KoreanName": "이원희",
-    "KoreanStageName": "원희",
-    "DateOfBirth": "2007-06-26",
-    "Group": "ILLIT",
-    "Country": "South Korea",
-    "Birthplace": "",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 34,
-    "StageName": "Yunah",
-    "FullName": "Noh Yun-ah",
-    "KoreanName": "노윤아",
-    "KoreanStageName": "윤아",
-    "DateOfBirth": "2004-01-15",
-    "Group": "ILLIT",
-    "Country": "South Korea",
-    "Birthplace": "Chungju, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 35,
-    "StageName": "Jisoo",
-    "FullName": "Kim Ji-soo",
-    "KoreanName": "김지수",
-    "KoreanStageName": "지수",
-    "DateOfBirth": "1995-01-03",
-    "Group": "BLACKPINK",
-    "Country": "South Korea",
-    "Birthplace": "Gunpo, Gyeonggi, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 36,
-    "StageName": "Jennie",
-    "FullName": "Kim Jennie",
-    "KoreanName": "김제니",
-    "KoreanStageName": "제니",
-    "DateOfBirth": "1996-01-16",
-    "Group": "BLACKPINK",
-    "Country": "South Korea",
-    "Birthplace": "Gangnam, Seoul, South Korea",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 37,
-    "StageName": "Lisa",
-    "FullName": "Lalisa Manobal",
-    "KoreanName": "라리사 마노반",
-    "KoreanStageName": "리사",
-    "DateOfBirth": "1997-03-27",
-    "Group": "BLACKPINK",
-    "Country": "Thailand",
-    "Birthplace": "Buriram, Thailand",
-    "2ndGroup": "",
-    "Gender": "F"
-  },
-  {
-    "Id": 38,
-    "StageName": "Rosé",
-    "FullName": "Roseanne Park",
-    "KoreanName": "박채영",
-    "KoreanStageName": "로제",
-    "DateOfBirth": "1997-02-11",
-    "Group": "BLACKPINK",
-    "Country": "New Zealand",
-    "Birthplace": "Auckland, New Zealand",
-    "2ndGroup": "",
+    "SecondGroup": " ",
     "Gender": "F"
   }
 ]
