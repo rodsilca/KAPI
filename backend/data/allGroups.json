@@ -76,5 +76,57 @@
     "Members": [],
     "FanbaseName": "GLLIT",
     "Active": "Yes"
+  },
+  {
+    "Id": 7,
+    "Name": "BLACKPINK",
+    "ShortName": " ",
+    "KoreanName": "블랙핑크",
+    "Debut": "2016-08-08",
+    "Company": "YG Entertainment",
+    "CurrentMemberCount": 4,
+    "OriginalMemberCount": 4,
+    "Members": [],
+    "FanbaseName": "Blink",
+    "Active": "Yes"
+  },
+  {
+    "Id": 8,
+    "Name": "IZNA",
+    "ShortName": " ",
+    "KoreanName": "아이즈나",
+    "Debut": "2024-11-13",
+    "Company": "WAKEONE",
+    "CurrentMemberCount": 7,
+    "OriginalMemberCount": 7,
+    "Members": [],
+    "FanbaseName": "COIN",
+    "Active": "Yes"
+  },
+  {
+    "Id": 9,
+    "Name": "ITZY",
+    "ShortName": " ",
+    "KoreanName": "있지",
+    "Debut": "2019-02-12",
+    "Company": "JYP Entertainment",
+    "CurrentMemberCount": 5,
+    "OriginalMemberCount": 5,
+    "Members": [],
+    "FanbaseName": "MIDZY",
+    "Active": "Yes"
+  },
+  {
+    "Id": 10,
+    "Name": "IVE",
+    "ShortName": " ",
+    "KoreanName": "아이브",
+    "Debut": "2021-12-01",
+    "Company": "Starship Entertainment",
+    "CurrentMemberCount": 6,
+    "OriginalMemberCount": 6,
+    "Members": [],
+    "FanbaseName": "DIVE",
+    "Active": "Yes"
   }
 ]
