@@ -73,16 +73,44 @@ export const getGroupById = async (req,res,next) => {
 };
 
 export const createGroup = async (req,res,next)=>{
+    const data = req.body;
+    
     try{
+        if(Array.isArray(data) || data.length > 1){
+            const results = data.map((item,index) =>{
+                const {error,value} = createGroupSchema.validate(item);
+                return {index,error,value};
+            });
 
-        const {error} = createGroupSchema.validate(req.body);
+            const errors = results.filter(r => r.error);
+
+            if (errors.length > 0) {
+                return res.status(400).json({
+                    message: "Some itens are invalid",
+                    errors: errors.map(e => ({
+                    index: e.index,
+                    message: e.error.details[0].message,
+                    item: data[e.index],
+                    })),
+                });
+            }
+
+            const validData = results.map(r => r.value);
+
+            const insert = await Group.insertMany(validData);
+
+            res.status(201).json({message: `${insert.length} groups created` , results: insert});
+        }
+        
+        console.log(data)
+        const {error} = createGroupSchema.validate(data);
 
         if(error) return next(error);
 
-        const newGroup = new Group(req.body);
+        const newGroup = new Group(data);
         newGroup.save();
 
-        res.status(201).json({message: "Group created", results: req.body});
+        res.status(201).json({message: "Group created", results: data});
 
     }catch(error){
         next(error);

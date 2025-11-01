@@ -35,7 +35,7 @@ const GroupSchema = new mongoose.Schema({
         }
     }
 });
-//Middleware que deixa vazio o campo idol quando o grupo for excluido
+//Middleware que deixa vazio o campo group do idol quando o grupo for excluido
 GroupSchema.post("findOneAndDelete", async function (doc) {
   if (doc) {
     try {

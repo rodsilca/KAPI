@@ -74,20 +74,83 @@ export const createIdol = async (req,res,next) =>{
     const data = req.body;
 
     try {
-        const{error} = createIdolSchema.validate(data);
+        if(!Array.isArray(data)|| data.length===0){
+            const{error} = createIdolSchema.validate(data);
 
-        // if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
-        if(error) next(error);
+            // if(error) return res.status(400).json({ message: "Validation Error", details: error.details.map( x => x.message)});
+            if(error) next(error);
 
-        const newIdol = new Idol(data);
-        await newIdol.save();
+            const newIdol = new Idol(data);
+            await newIdol.save();
 
-        res.status(201).json({message: "Idol created", results: data});
+            res.status(201).json({message: "Idol created", results: data});
+        }
+
+        const results = data.map((item,index) =>{
+            const {error,value} = createIdolSchema.validate(item);
+            return {index,error,value};
+        });
+
+        const errors = results.filter(r => r.error);
+
+        if (errors.length > 0) {
+            return res.status(400).json({
+                message: "Some itens are invalid",
+                errors: errors.map(e => ({
+                index: e.index,
+                message: e.error.details[0].message,
+                item: data[e.index],
+                })),
+            });
+        }
+
+        const validData = results.map(r => r.value);
+
+        const insert = await Idol.insertMany(validData);
+
+        res.status(201).json({message: `${insert.length} idols created` , results: insert});
+        
     } catch (error) {
         // res.status(500).json({ message: "Error creating idol", error });
         next(error);
     }
 };
+
+// export const createIdolByList = async (req,res,next)=>{
+//     const data = req.body;
+
+//     try{
+//         if(!Array.isArray(data) || data.length ===0){
+//             return res.status(400).json({ error: "Send a list of valid idols" });
+//         }
+
+//         const results = data.map((item,index) =>{
+//             const {error,value} = createIdolSchema.validate(item);
+//             return {index,error,value};
+//         });
+
+//         const errors = results.filter(r => r.error);
+
+//         if (errors.length > 0) {
+//             return res.status(400).json({
+//                 message: "Some itens are invalid",
+//                 errors: errors.map(e => ({
+//                 index: e.index,
+//                 message: e.error.details[0].message,
+//                 item: data[e.index],
+//                 })),
+//             });
+//         }
+
+//         const validData = results.map(r => r.value);
+
+//         const insert = await Idol.insertMany(validData);
+
+//         res.status(201).json({message: `${insert.length} idols created` , results: insert});
+//     }catch(error){
+//         next(error);
+//     }
+// }
 
 export const updateIdol = async (req,res,next) => {
     try {
